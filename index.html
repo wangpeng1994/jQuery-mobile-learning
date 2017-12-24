@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery Mobile私塾</title>
+  <link rel="stylesheet" href="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+  <script>
+
+    $(document).on('pagecreate', function(){
+      
+      $(window).on("orientationchange",function(){
+        console.log("方向有改变!")
+      })
+      
+    })
+    
+  </script>
+
+  <div data-role="page" id="pagehome">
+    <div data-role="panel" id="myPanel" data-display="overlay" data-position-fixed="true">
+      <h3>用户设置</h3>
+      <form>
+        <label for="switch">夜间模式：</label>
+          <input type="checkbox" data-role="flipswitch" name="switch" id="switch">
+      </form>
+      <p>可以滑动面板、点击按钮或者点击外部区域来关闭面板。</p>
+      <a href="#pagehome" data-rel="close" class="ui-btn ui-btn-inline ui-corner-all ui-shadow ui-icon-delete ui-btn-icon-left">关闭面板</a>
+    </div>
+
+    <div data-role="header" data-position="fixed">
+      <a href="#myPanel" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-notext ui-nodisc-icon ui-alt-icon ui-btn-left">用户</a>
+      <h1>jQuery Mobile私塾</h1>
+      <a class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-notext ui-nodisc-icon ui-alt-icon ui-btn-right">搜索</a>
+    </div>
+
+    <div data-role="main" class="ui-content">
+      <p>点击下面的分类，从这里开始吧！
+        <a href="#pagehelp" data-transition="pop">查看帮助</a>
+      </p>
+
+      <div data-role="controlgroup" data-type="vertical">
+        <a href="#pagetransition" data-role="button" data-transition="slidefade">页面过渡</a>
+        <a href="#pagebtn" data-role="button" data-transition="slidefade">按钮</a>
+        <a href="#pagebtnicon" data-role="button" data-transition="slidefade">按钮图标</a>   
+        <a href="#pagepopup" data-role="button" data-transition="slidefade">弹窗</a>     
+      </div>
+      <a href="#pagethree" class="ui-btn ui-corner-all ui-shadow ui-icon-arrow-r ui-btn-icon-right ui-nodisc-icon ui-alt-icon" data-transition="slidefade">下一页</a>
+    </div>
+
+    <div data-role="footer" data-position="fixed" style="text-align:center;">
+      <a href="https://github.com/wangpeng1994" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left">在Github上关注我</a>
+      <a href="https://www.jianshu.com/u/691060f4fb58" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left">在Jianshu上关注我</a>
+    </div>
+  </div>
+
+
+  <!-- 帮助对话框 -->
+  <div data-role="page" data-dialog="true" id="pagehelp">
+    <div data-role="header">
+      <h1>学习帮助</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+      <p>点击不同分类学习不同内容</p>
+      <p>点击下一页查看更多分类</p>
+    </div>
+
+    <div data-role="footer">
+      <h1>晓风残月出品</h1>
+    </div>
+  </div>
+
+
+
+  <!-- 过渡相关 -->
+  <div data-role="page" id="pagetransition">
+    <div data-role="header" data-position="fixed">
+      <a href="#pagehome" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-notext">主页</a>
+      <h1>页面过渡</h1>
+    </div>    
+    <div data-role="main" class="ui-content">
+      <p>使用 data-transition 实现页面切换过渡效果：</p>
+      <div data-role="controlgroup" data-type="vertical">
+        <a href="#pagetransitiontwo" data-role="button" data-transition="fade">fade 淡入下一页(默认)</a>
+        <a href="#pagetransitiontwo" data-role="button" data-transition="flip">flip 从后向前翻转到下一页</a>
+        <a href="#pagetransitiontwo" data-role="button" data-transition="flow">flow 抛出当前页，进入下一页</a>
+        <a href="#pagetransitiontwo" data-role="button" data-transition="pop">pop 像弹出窗口那样转到下一页</a>
+        <a href="#pagetransitiontwo" data-role="button" data-transition="slide">slide 从右向左滑动到下一页</a>
+        <a href="#pagetransitiontwo" data-role="button" data-transition="slidefade">slidefade 从右向左滑动并淡入到下一页</a>
+        <a href="#pagetransitiontwo" data-role="button" data-transition="slideup">slideup 从下到上滑动到下一页</a>
+        <a href="#pagetransitiontwo" data-role="button" data-transition="slidedown">slidedown 从上到下滑动到下一页</a>
+        <a href="#pagetransitiontwo" data-role="button" data-transition="turn">turn 转向下一页</a> 
+        <a href="#pagetransitiontwo" data-role="button" data-transition="none">none 无过渡效果</a> 
+      </div>
+      <p>上面的所有效果支持后退行为。例如，如果您想要页面从左向右滑动，而不是从右向左滑动，请使用带有 "reverse" 值的 data-direction 属性。在后退按钮上这是默认的。</p>
+      <p>例如：</p>
+      <a href="#pagetransitiontwo" data-role="button" data-transition="slide" data-direction="reverse">slide反方向</a>
+    </div>
+    <div data-role="footer">
+      <h1>晓风残月出品</h1>
+    </div>
+  </div>
+
+
+  <!-- 过渡演示第二页面 -->
+  <div data-role="page" id="pagetransitiontwo">
+    <div data-role="header" data-position="fixed">
+      <a href="#pagehome" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-notext">主页</a>
+      <h1>过渡分页</h1>
+    </div>    
+    <div data-role="main" class="ui-content">
+      <a href="#pagetransition" data-role="button">返回上一页(默认fade效果)</a> 
+    </div>
+    <div data-role="footer">
+      <h1>晓风残月出品</h1>
+    </div>
+  </div>
+
+
+
+<!-- 按钮相关 -->
+  <div data-role="page" id="pagebtn">
+    <div data-role="header" data-position="fixed">
+      <a href="#pagehome" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-notext">主页</a>
+      <h1>按钮</h1>
+    </div>
+    <div data-role="main" class="ui-content">
+      <p>创建按钮的方式：</p>
+      <button>单纯的button按钮</button>
+      <button class="ui-btn">使用了ui-btn类的按钮</button>
+      <input type="button" value="input按钮">
+      <a href="#" data-role="button">使用了data-role的a标签按钮</a>
+      <p>导航按钮：</p>
+      <a href="#pagehome" data-role="button">回到首页</a>
+      <p>水平组合按钮：</p>
+      <div data-role="controlgroup" data-type="vertical">
+          <a href="#pageone" data-role="button">按钮1</a>
+          <a href="#pageone" data-role="button">按钮2</a>
+          <a href="#pageone" data-role="button">按钮3</a>        
+      </div>
+      <p>垂直组合按钮：</p>
+      <div data-role="controlgroup" data-type="horizontal">
+          <a href="#pageone" data-role="button">按钮1</a>
+          <a href="#pageone" data-role="button">按钮2</a>
+          <a href="#pageone" data-role="button">按钮3</a>        
+      </div>
+      <p>后退按钮：</p>
+      <a href="#pageone" data-role="button" data-transition="flip" data-rel="back">data-rel="back"点击后退</a>
+    </div>
+    <div data-role="footer">
+      <h1>晓风残月出品</h1>
+    </div>
+  </div>
+
+
+
+  <!-- 按钮图标 -->
+  <div data-role="page" id="pagebtnicon" data-position="fixed">
+    <div data-role="header">
+      <a href="#pagehome" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-notext">主页</a>
+      <h1>按钮图标</h1>
+    </div>
+    <div data-role="main" class="ui-content">
+      <p>常见按钮图标：</p>
+      <a href="#" class="ui-btn ui-corner-all ui-shadow ui-mini ui-btn-inline ui-icon-arrow-l ui-btn-icon-left">左箭头</a>
+      <a href="#" class="ui-btn ui-corner-all ui-shadow ui-mini ui-btn-inline ui-icon-arrow-r ui-btn-icon-left">右箭头</a>
+      <a href="#" class="ui-btn ui-corner-all ui-shadow ui-mini ui-btn-inline ui-icon-info ui-btn-icon-left">信息</a>
+      <a href="#" class="ui-btn ui-corner-all ui-shadow ui-mini ui-btn-inline ui-icon-delete ui-btn-icon-left">删除</a>
+      <a href="#" class="ui-btn ui-corner-all ui-shadow ui-mini ui-btn-inline ui-icon-back ui-btn-icon-left">后退</a>
+      <a href="#" class="ui-btn ui-corner-all ui-shadow ui-mini ui-btn-inline ui-icon-audio ui-btn-icon-left">扬声器</a>
+      <a href="#" class="ui-btn ui-corner-all ui-shadow ui-mini ui-btn-inline ui-icon-camera ui-btn-icon-left">照相机</a> 
+      <a href="#" class="ui-btn ui-corner-all ui-shadow ui-mini ui-btn-inline ui-icon-lock ui-btn-icon-left">挂锁</a>
+      <a href="#" class="ui-btn ui-corner-all ui-shadow ui-mini ui-btn-inline ui-icon-search ui-btn-icon-left">搜索</a>
+      <a href="#" class="ui-btn ui-corner-all ui-shadow ui-mini ui-btn-inline ui-icon-alert ui-btn-icon-left">警告</a>
+      <a href="#" class="ui-btn ui-corner-all ui-shadow ui-mini ui-btn-inline ui-icon-grid ui-btn-icon-left">网格</a>
+      <a href="#" class="ui-btn ui-corner-all ui-shadow ui-mini ui-btn-inline ui-icon-home ui-btn-icon-left">主页</a>
+      <p>注意！必须使用"ui-btn-icon"属性指定图标位置，否则图标将不会显示。</p>
+      <p>如果只想显示图标，可以使用"notext"：</p>
+      <a href="#anylink" class="ui-btn ui-icon-search ui-btn-icon-notext">搜索</a>
+      <p>所有图标默认有灰色圆圈，可以添加"ui-nodisc-icon"类来移除：</p>
+      <a href="#anylink" class="ui-btn ui-corner-all ui-shadow ui-mini ui-btn-inline ui-icon-search ui-btn-icon-left ui-nodisc-icon">去掉圆圈</a>
+      <p>所有图标默认都是白色的，可以添加"ui-alt-icon"将图标改为黑色：</p>
+      <a href="#anylink" class="ui-btn ui-corner-all ui-shadow ui-mini ui-btn-inline ui-icon-search ui-btn-icon-left ui-alt-icon">黑色</a>
+    </div>
+    <div data-role="footer">
+      <h1>晓风残月出品</h1>
+    </div>
+  </div>
+
+  
+
+  <div data-role="page" id="pagepopup">
+    <div data-role="header" data-position="fixed">
+      <h1>弹窗</h1>
+      <a href="#pagehome" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-notext">主页</a>
+    </div>
+    <div data-role="main" class="ui-content">
+      <p>弹窗是一个非常流行的对话框，弹窗可以覆盖在页面上展示。弹窗可用于显示一段文本，图片，地图或其他内容。</p>
+      
+      <a href="#myPopup" data-role="button" data-inline="true" data-rel="popup">显示弹窗</a>
+      <div data-role="popup" id="myPopup" class="ui-content">
+        <p>这是一个简单的弹窗</p>
+      </div>
+
+      <p>关闭弹窗很简单，点击弹窗之外的区域即可(不想这样可以添加 data-dismissible="false"属性)，另外还可以在弹窗上添加关闭按钮：</p>
+
+      <a href="#myPopupA" data-role="button" data-rel="popup">显示弹窗A</a>
+      <div data-role="popup" id="myPopupA" class="ui-content">
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-icon-delete ui-btn-icon-notext ui-btn-right">关闭</a>
+        <p>我在右上角有个关闭按钮</p>
+        <p><b>提示:</b> 你也可以通过点击弹窗外的区域来关闭弹窗。</p>
+      </div>
+
+      <a href="#myPopupB" data-role="button" data-rel="popup">显示弹窗B</a>
+      <div data-role="popup" id="myPopupB" class="ui-content">
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-icon-delete ui-btn-icon-notext ui-btn-left">关闭</a>
+        <p>我在左上角有个关闭按钮</p>
+        <p><b>提示:</b> 你也可以通过点击弹窗外的区域来关闭弹窗。</p>
+      </div>
+
+      <a href="#myPopupC" data-role="button" data-rel="popup">显示弹窗C</a>
+      <div data-role="popup" id="myPopupC" class="ui-content" data-dismissible="false">
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-icon-delete ui-btn-icon-notext ui-btn-right">关闭</a>
+        <p>我是不可取消的按钮 (data-dismissible="false)。唯一关闭这个弹窗的方式是通过点击右上角的关闭按钮。你无法通过点击弹窗之外的区域关闭弹窗。</p>
+      </div>
+
+      <p>默认情况下，弹窗是没有过渡效果的。如果你需要你可以通过 data-transition="value" 属性来添加过渡效果：</p>
+      <div data-role="collapsible">
+        <h1>弹窗所有过渡效果演示</h1>
+        <div data-role="controlgroup" data-type="vertical">
+          <a href="#myPopup" data-rel="popup" class="ui-btn" data-transition="fade">淡入</a>
+          <a href="#myPopup" data-rel="popup" class="ui-btn" data-transition="flip">翻转</a>
+          <a href="#myPopup" data-rel="popup" class="ui-btn" data-transition="flow">抛出当前页后显示</a>
+          <a href="#myPopup" data-rel="popup" class="ui-btn" data-transition="pop">弹出</a>
+          <a href="#myPopup" data-rel="popup" class="ui-btn" data-transition="slide">向左滑动</a>
+          <a href="#myPopup" data-rel="popup" class="ui-btn" data-transition="slidefade">向左滑动并淡入</a>
+          <a href="#myPopup" data-rel="popup" class="ui-btn" data-transition="slideup">向上滑动 up</a>
+          <a href="#myPopup" data-rel="popup" class="ui-btn" data-transition="slidedown">向下滑动</a>
+          <a href="#myPopup" data-rel="popup" class="ui-btn" data-transition="turn">转向</a>
+          <a href="#myPopup" data-rel="popup" class="ui-btn" data-transition="none" >无过渡效果</a>
+        </div>
+      </div>
+
+      <p>定位弹窗：</p>
+      <a href="#myPopup1" data-rel="popup" data-role="button" data-position-to="origin">默认显示</a>
+      <a href="#myPopup2" data-rel="popup" data-role="button" data-position-to="#demo">弹窗显示在 id="demo" 元素上</a>
+      <a href="#myPopup3" data-rel="popup" data-role="button" data-position-to="window">弹窗在窗口居中显示</a>
+   
+      <div data-role="popup" id="myPopup1" class="ui-content">
+        <p>我显示在点击的按钮上</p>
+      </div>
+      <div data-role="popup" id="myPopup2" class="ui-content">
+        <p>我显示在 id="demo" 元素上</p>
+      </div>
+      <div data-role="popup" id="myPopup3" class="ui-content">
+        <p>我显示在在窗口中央</p>
+      </div>
+
+      <p>这是填充段落。</p>
+      <p>这还是填充段落。</p>
+      <p>这又是一个段落，但是这个段落包含了子元素：这是一个插入在段落中 id="demo" 的 <span id="demo" style="color:red;">span</span> 元素 。</p>
+
+      <p>图片弹窗并使用背景覆盖：</p>
+      <a href="#myPopupImg" data-rel="popup" data-position-to="window">
+        <img src="http://oy5wj3l9n.bkt.clouddn.com//17-12-24/37748112.jpg" alt="girl" style="width:200px;">
+      </a>
+      <div data-role="popup" id="myPopupImg" data-overlay-theme="b">
+        <a href="#" data-rel="back" class="ui-btn ui-btn-b ui-corner-all ui-shadow ui-icon-delete ui-btn-icon-notext ui-btn-right">关闭</a>
+        <img src="http://oy5wj3l9n.bkt.clouddn.com//17-12-24/37748112.jpg" alt="girl" style="width:800px;">
+      </div>
+    </div>
+    <div data-role="footer">
+      <h1>晓风残月出品</h1>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div data-role="page" id="pagethree">
+    <div data-role="header">
+      <h1>欢迎来到晓风残月</h1>
+      <a href="#" class="ui-btn ui-corner-all ui-icon-back ui-btn-icon-left"  data-rel="back">返回</a>
+    </div>
+
+
+    <div data-role="footer">
+      <h1>我是底部</h1>
+    </div>
+  </div>
+  
+
+</body>
+
+</html>
